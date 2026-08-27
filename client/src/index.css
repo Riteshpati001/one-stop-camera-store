@@ -69,6 +69,13 @@ h1,h2,h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; 
 .hero h1 { font-size: clamp(76px,10.4vw,154px); line-height: .75; max-width: 650px; margin-top: 28px; }
 .hero-title-line { display: block; }
 .hero h1 em { color: var(--amber-light); font-weight: 500; }
+.side-enter { animation-duration: .42s; animation-timing-function: var(--ease-out); animation-fill-mode: both; will-change: transform, opacity; }
+.side-enter-left { animation-name: sideEnterLeft; }
+.side-enter-right { animation-name: sideEnterRight; }
+.side-enter-delay-1 { animation-delay: .045s; }
+.side-enter-delay-2 { animation-delay: .1s; }
+.side-enter-delay-3 { animation-delay: .16s; }
+.side-enter-delay-4 { animation-delay: .22s; }
 .hero-bottom { display: flex; align-items: end; justify-content: space-between; gap: 32px; max-width: 750px; margin-top: 49px; }
 .hero-bottom > p { max-width: 325px; color: rgba(246,241,232,.68); font-size: 14px; line-height: 1.65; }
 .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -138,6 +145,8 @@ h1,h2,h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; 
 
 @keyframes orbit { to { transform:rotateX(67deg) rotateZ(332deg); } }
 @keyframes heroDrift { from { transform:scale(1); } to { transform:scale(1.035); } }
+@keyframes sideEnterLeft { from { opacity:0; transform:translateX(-68px); } to { opacity:1; transform:translateX(0); } }
+@keyframes sideEnterRight { from { opacity:0; transform:translateX(68px); } to { opacity:1; transform:translateX(0); } }
 /* Focus-selection plates and a branded map frame maintain the Aperture Noir instrument-panel language on secondary views. */
 .gear-options button { background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.012)); }
 .gear-options button::before,.gear-options button::after { content:""; position:absolute; width:18px; height:18px; border-color:rgba(214,162,94,.75); opacity:.72; transition:opacity .22s,transform .22s var(--ease-out); }

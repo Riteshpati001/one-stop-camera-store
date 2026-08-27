@@ -3,7 +3,6 @@
  * a warm action surface and technical-label clarity rather than a generic checkout form.
  */
 import { FormEvent, useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowUpRight, CheckCircle2, Mail, Phone } from "lucide-react";
 import { store } from "@/data/store";
 
@@ -22,9 +21,9 @@ export default function Quote() {
     <div className="page quote-page">
       <section className="shell quote-layout">
         <div className="quote-intro">
-          <motion.p className="eyebrow" initial={{ opacity: 0, x: -52 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.34, ease: [0.23, 1, 0.32, 1] }}><span className="eyebrow-dot" /> Request a quote</motion.p>
-          <motion.h1 initial={{ opacity: 0, x: -72 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05, duration: 0.42, ease: [0.23, 1, 0.32, 1] }}>Tell us what you are making.</motion.h1>
-          <motion.p initial={{ opacity: 0, x: 58 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.11, duration: 0.38, ease: [0.23, 1, 0.32, 1] }}>A few details make it easier for One Stop to check relevant options, price, and availability before getting back to you.</motion.p>
+          <p className="eyebrow side-enter side-enter-left"><span className="eyebrow-dot" /> Request a quote</p>
+          <h1 className="side-enter side-enter-left side-enter-delay-1">Tell us what you are making.</h1>
+          <p className="side-enter side-enter-right side-enter-delay-2">A few details make it easier for One Stop to check relevant options, price, and availability before getting back to you.</p>
           {brief && <div className="brief-recap"><span>Gear finder brief</span><strong>{brief.split("|").map((part) => part.trim()).join(" · ")}</strong></div>}
           <div className="quote-direct">
             <span>Prefer a direct conversation?</span>

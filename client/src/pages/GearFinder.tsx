@@ -3,7 +3,6 @@
  * film strip; selections are a conversation starter, not an unverified AI recommendation.
  */
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
 import { budgetOptions, experienceOptions, purposeOptions } from "@/data/store";
 
@@ -27,9 +26,9 @@ export default function GearFinder() {
         {!complete ? <>
           <div className="gear-status"><span>0{step + 1} / 0{steps.length}</span><span>Find your gear</span></div>
           <div className="gear-question">
-            <motion.p className="eyebrow" initial={{ opacity: 0, x: -52 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.34, ease: [0.23, 1, 0.32, 1] }}><Sparkles /> A simpler starting point</motion.p>
-            <motion.h1 initial={{ opacity: 0, x: -72 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05, duration: 0.42, ease: [0.23, 1, 0.32, 1] }}>{current.title}</motion.h1>
-            <motion.p initial={{ opacity: 0, x: 58 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.11, duration: 0.38, ease: [0.23, 1, 0.32, 1] }}>{current.copy}</motion.p>
+            <p className="eyebrow side-enter side-enter-left"><Sparkles /> A simpler starting point</p>
+            <h1 className="side-enter side-enter-left side-enter-delay-1">{current.title}</h1>
+            <p className="side-enter side-enter-right side-enter-delay-2">{current.copy}</p>
           </div>
           <div className={`gear-options option-count-${current.options.length}`}>
             {current.options.map((option, index) => <button onClick={() => select(option)} key={option} className={answers[step] === option ? "selected" : ""}><span>0{index + 1}</span><strong>{option}</strong><i /></button>)}

@@ -8,10 +8,6 @@ import { categories, products, store } from "@/data/store";
 import { SectionHeading } from "@/components/SiteChrome";
 import { ProductCard } from "@/components/ProductCard";
 
-const rise = { hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0 } };
-const enterLeft = { hidden: { opacity: 0, x: -96 }, show: { opacity: 1, x: 0 } };
-const enterRight = { hidden: { opacity: 0, x: 96 }, show: { opacity: 1, x: 0 } };
-
 export default function Home() {
   return <div className="home-page">
     <section className="hero">
@@ -19,12 +15,12 @@ export default function Home() {
       <div className="hero-grain" />
       <div className="hero-arc arc-one" /><div className="hero-arc arc-two" />
       <div className="shell hero-content">
-        <motion.p className="hero-kicker" initial="hidden" animate="show" variants={enterLeft} transition={{ duration: 0.38, ease: [0.23, 1, 0.32, 1] }}>One Stop · Bhubaneswar <span /></motion.p>
-        <h1 aria-label="Capture what matters."><motion.span className="hero-title-line" initial="hidden" animate="show" variants={enterLeft} transition={{ delay: 0.05, duration: 0.5, ease: [0.23, 1, 0.32, 1] }}>Capture</motion.span><motion.em className="hero-title-line" initial="hidden" animate="show" variants={enterRight} transition={{ delay: 0.1, duration: 0.52, ease: [0.23, 1, 0.32, 1] }}>what matters.</motion.em></h1>
-        <motion.div className="hero-bottom" initial="hidden" animate="show" variants={rise} transition={{ delay: 0.12, duration: 0.46 }}>
-          <motion.p initial="hidden" animate="show" variants={enterLeft} transition={{ delay: 0.19, duration: 0.44, ease: [0.23, 1, 0.32, 1] }}>Cameras, lenses and photography essentials for creators who want to tell better stories.</motion.p>
-          <motion.div className="hero-actions" initial="hidden" animate="show" variants={enterRight} transition={{ delay: 0.25, duration: 0.44, ease: [0.23, 1, 0.32, 1] }}><a className="button button-amber" href="/products">Explore gear <ArrowUpRight /></a><a className="button button-ghost-light" href="/quote">Get a quote</a></motion.div>
-        </motion.div>
+        <p className="hero-kicker side-enter side-enter-left">One Stop · Bhubaneswar <span /></p>
+        <h1 aria-label="Capture what matters."><span className="hero-title-line side-enter side-enter-left side-enter-delay-1">Capture</span><em className="hero-title-line side-enter side-enter-right side-enter-delay-2">what matters.</em></h1>
+        <div className="hero-bottom">
+          <p className="side-enter side-enter-left side-enter-delay-3">Cameras, lenses and photography essentials for creators who want to tell better stories.</p>
+          <div className="hero-actions side-enter side-enter-right side-enter-delay-4"><a className="button button-amber" href="/products">Explore gear <ArrowUpRight /></a><a className="button button-ghost-light" href="/quote">Get a quote</a></div>
+        </div>
         <motion.div className="hero-orbit" initial={{ opacity: 0, rotateX: 16, rotateY: -14, y: 24 }} animate={{ opacity: 1, rotateX: 0, rotateY: 0, y: 0 }} transition={{ delay: 0.18, duration: 0.64, ease: [0.23, 1, 0.32, 1] }} aria-hidden="true"><div className="orbit-ring" /><div className="orbit-core"><Aperture /></div><span>ONE STOP<br />OPTICS</span></motion.div>
         <a className="hero-scroll" href="#categories">Scroll to explore <ArrowDownRight /></a>
       </div>
@@ -33,7 +29,7 @@ export default function Home() {
     <section id="categories" className="categories-section shell section-space">
       <SectionHeading eyebrow="Explore by direction" title="Build around the work." copy="Begin with the part of the process you are trying to improve." link={{ href: "/products", label: "View all gear" }} />
       <div className="category-grid">
-        {categories.map((category, index) => <a href={`/products?category=${category.slug}`} className={`category-card category-card-${index + 1}`} key={category.slug}><img src={category.image} alt="" loading="lazy" /><div className="category-card-overlay" /><div className="category-card-content"><span>0{index + 1}</span><h3>{category.title}</h3><p>{category.descriptor}</p><ArrowUpRight /></div></a>)}
+        {categories.map((category, index) => <motion.a href={`/products?category=${category.slug}`} className={`category-card category-card-${index + 1}`} key={category.slug} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ delay: Math.min(index * 0.07, 0.28), duration: 0.4, ease: [0.23, 1, 0.32, 1] }}><img src={category.image} alt="" loading="lazy" /><div className="category-card-overlay" /><div className="category-card-content"><span>0{index + 1}</span><h3>{category.title}</h3><p>{category.descriptor}</p><ArrowUpRight /></div></motion.a>)}
       </div>
     </section>
 

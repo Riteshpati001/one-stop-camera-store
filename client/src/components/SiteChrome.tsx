@@ -4,7 +4,6 @@
  */
 import { Menu, X, Aperture, ArrowUpRight, MapPin, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import { store } from "@/data/store";
 
@@ -29,9 +28,9 @@ export function Wordmark({ inverted = false }: { inverted?: boolean }) {
 export function PageIntro({ eyebrow, title, copy }: { eyebrow: string; title: string; copy: string }) {
   return (
     <section className="page-intro shell">
-      <motion.p className="eyebrow" initial={{ opacity: 0, x: -52 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.34, ease: [0.23, 1, 0.32, 1] }}><Aperture aria-hidden="true" /> {eyebrow}</motion.p>
-      <motion.h1 initial={{ opacity: 0, x: -72 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05, duration: 0.42, ease: [0.23, 1, 0.32, 1] }}>{title}</motion.h1>
-      <motion.p className="page-intro-copy" initial={{ opacity: 0, x: 58 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.11, duration: 0.38, ease: [0.23, 1, 0.32, 1] }}>{copy}</motion.p>
+      <p className="eyebrow side-enter side-enter-left"><Aperture aria-hidden="true" /> {eyebrow}</p>
+      <h1 className="side-enter side-enter-left side-enter-delay-1">{title}</h1>
+      <p className="page-intro-copy side-enter side-enter-right side-enter-delay-2">{copy}</p>
     </section>
   );
 }
