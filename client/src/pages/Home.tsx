@@ -19,13 +19,13 @@ export default function Home() {
       <div className="hero-grain" />
       <div className="hero-arc arc-one" /><div className="hero-arc arc-two" />
       <div className="shell hero-content">
-        <motion.p className="hero-kicker" initial="hidden" animate="show" variants={enterLeft} transition={{ duration: 0.56, ease: [0.23, 1, 0.32, 1] }}>One Stop · Bhubaneswar <span /></motion.p>
-        <h1 aria-label="Capture what matters."><motion.span className="hero-title-line" initial="hidden" animate="show" variants={enterLeft} transition={{ delay: 0.08, duration: 0.76, ease: [0.23, 1, 0.32, 1] }}>Capture</motion.span><motion.em className="hero-title-line" initial="hidden" animate="show" variants={enterRight} transition={{ delay: 0.15, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}>what matters.</motion.em></h1>
-        <motion.div className="hero-bottom" initial="hidden" animate="show" variants={rise} transition={{ delay: 0.16, duration: 0.65 }}>
-          <motion.p initial="hidden" animate="show" variants={enterLeft} transition={{ delay: 0.28, duration: 0.62, ease: [0.23, 1, 0.32, 1] }}>Cameras, lenses and photography essentials for creators who want to tell better stories.</motion.p>
-          <motion.div className="hero-actions" initial="hidden" animate="show" variants={enterRight} transition={{ delay: 0.35, duration: 0.62, ease: [0.23, 1, 0.32, 1] }}><a className="button button-amber" href="/products">Explore gear <ArrowUpRight /></a><a className="button button-ghost-light" href="/quote">Get a quote</a></motion.div>
+        <motion.p className="hero-kicker" initial="hidden" animate="show" variants={enterLeft} transition={{ duration: 0.38, ease: [0.23, 1, 0.32, 1] }}>One Stop · Bhubaneswar <span /></motion.p>
+        <h1 aria-label="Capture what matters."><motion.span className="hero-title-line" initial="hidden" animate="show" variants={enterLeft} transition={{ delay: 0.05, duration: 0.5, ease: [0.23, 1, 0.32, 1] }}>Capture</motion.span><motion.em className="hero-title-line" initial="hidden" animate="show" variants={enterRight} transition={{ delay: 0.1, duration: 0.52, ease: [0.23, 1, 0.32, 1] }}>what matters.</motion.em></h1>
+        <motion.div className="hero-bottom" initial="hidden" animate="show" variants={rise} transition={{ delay: 0.12, duration: 0.46 }}>
+          <motion.p initial="hidden" animate="show" variants={enterLeft} transition={{ delay: 0.19, duration: 0.44, ease: [0.23, 1, 0.32, 1] }}>Cameras, lenses and photography essentials for creators who want to tell better stories.</motion.p>
+          <motion.div className="hero-actions" initial="hidden" animate="show" variants={enterRight} transition={{ delay: 0.25, duration: 0.44, ease: [0.23, 1, 0.32, 1] }}><a className="button button-amber" href="/products">Explore gear <ArrowUpRight /></a><a className="button button-ghost-light" href="/quote">Get a quote</a></motion.div>
         </motion.div>
-        <motion.div className="hero-orbit" initial={{ opacity: 0, rotateX: 16, rotateY: -14, y: 24 }} animate={{ opacity: 1, rotateX: 0, rotateY: 0, y: 0 }} transition={{ delay: 0.2, duration: 0.9, ease: [0.23, 1, 0.32, 1] }} aria-hidden="true"><div className="orbit-ring" /><div className="orbit-core"><Aperture /></div><span>ONE STOP<br />OPTICS</span></motion.div>
+        <motion.div className="hero-orbit" initial={{ opacity: 0, rotateX: 16, rotateY: -14, y: 24 }} animate={{ opacity: 1, rotateX: 0, rotateY: 0, y: 0 }} transition={{ delay: 0.18, duration: 0.64, ease: [0.23, 1, 0.32, 1] }} aria-hidden="true"><div className="orbit-ring" /><div className="orbit-core"><Aperture /></div><span>ONE STOP<br />OPTICS</span></motion.div>
         <a className="hero-scroll" href="#categories">Scroll to explore <ArrowDownRight /></a>
       </div>
     </section>
@@ -46,7 +46,7 @@ export default function Home() {
 
     <section className="shell section-space featured-section">
       <SectionHeading eyebrow="Featured directions" title="Seen through a different lens." copy="Representative selections for the prototype. Ask One Stop to confirm the exact gear available now." link={{ href: "/products", label: "Browse catalogue" }} />
-      <div className="featured-grid">{products.slice(0, 3).map((product, index) => <ProductCard key={product.slug} product={product} feature={index === 0} />)}</div>
+      <div className="featured-grid">{products.slice(0, 3).map((product, index) => <ProductCard key={product.slug} product={product} feature={index === 0} index={index} />)}</div>
     </section>
 
     <section className="shell visit-section">

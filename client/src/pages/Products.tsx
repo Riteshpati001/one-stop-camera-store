@@ -26,7 +26,7 @@ export default function Products() {
       </section>
       <section className="shell catalog-section">
         <div className="product-grid">
-          {shownProducts.map((product, index) => <ProductCard key={product.slug} product={product} feature={index === 0} />)}
+          {shownProducts.map((product, index) => <ProductCard key={product.slug} product={product} feature={index === 0} index={index} />)}
         </div>
       </section>
       <section className="shell catalogue-cta-wrap">

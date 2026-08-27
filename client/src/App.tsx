@@ -1,6 +1,7 @@
 /** Aperture Noir design note: global routing keeps all public pages inside a cinematic, practical shell. */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { MotionConfig } from "framer-motion";
 import { SiteLayout } from "@/components/SiteChrome";
 import NotFound from "@/pages/NotFound";
 import Home from "@/pages/Home";
@@ -31,7 +32,7 @@ function Router() {
 }
 
 function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark"><TooltipProvider><Toaster /><Router /></TooltipProvider></ThemeProvider></ErrorBoundary>;
+  return <MotionConfig reducedMotion="user"><ErrorBoundary><ThemeProvider defaultTheme="dark"><TooltipProvider><Toaster /><Router /></TooltipProvider></ThemeProvider></ErrorBoundary></MotionConfig>;
 }
 
 export default App;

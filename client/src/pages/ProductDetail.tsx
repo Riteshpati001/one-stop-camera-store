@@ -3,6 +3,7 @@
  * enquiry decision, presenting only verified-safe labels rather than invented specs.
  */
 import { ArrowLeft, ArrowUpRight, Check, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
 import { products } from "@/data/store";
 
 export default function ProductDetail() {
@@ -18,9 +19,9 @@ export default function ProductDetail() {
           <span className="product-frame product-frame-tl" /><span className="product-frame product-frame-br" />
         </div>
         <div className="detail-content">
-          <p className="eyebrow"><span className="eyebrow-dot" /> {product.label}</p>
-          <h1>{product.name}</h1>
-          <p className="detail-lead">A representative catalogue entry designed to start the right conversation, not to replace an in-store gear check.</p>
+          <motion.p className="eyebrow" initial={{ opacity: 0, x: -52 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.34, ease: [0.23, 1, 0.32, 1] }}><span className="eyebrow-dot" /> {product.label}</motion.p>
+          <motion.h1 initial={{ opacity: 0, x: -72 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05, duration: 0.42, ease: [0.23, 1, 0.32, 1] }}>{product.name}</motion.h1>
+          <motion.p className="detail-lead" initial={{ opacity: 0, x: 58 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.11, duration: 0.38, ease: [0.23, 1, 0.32, 1] }}>A representative catalogue entry designed to start the right conversation, not to replace an in-store gear check.</motion.p>
           <div className="detail-meta">
             <div><span>Price</span><strong>On request</strong></div>
             <div><span>Availability</span><strong>Confirm with One Stop</strong></div>
