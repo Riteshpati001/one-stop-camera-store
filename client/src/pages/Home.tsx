@@ -9,6 +9,8 @@ import { SectionHeading } from "@/components/SiteChrome";
 import { ProductCard } from "@/components/ProductCard";
 
 const rise = { hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0 } };
+const enterLeft = { hidden: { opacity: 0, x: -96 }, show: { opacity: 1, x: 0 } };
+const enterRight = { hidden: { opacity: 0, x: 96 }, show: { opacity: 1, x: 0 } };
 
 export default function Home() {
   return <div className="home-page">
@@ -17,11 +19,11 @@ export default function Home() {
       <div className="hero-grain" />
       <div className="hero-arc arc-one" /><div className="hero-arc arc-two" />
       <div className="shell hero-content">
-        <motion.p className="hero-kicker" initial="hidden" animate="show" variants={rise} transition={{ duration: 0.55 }}>One Stop · Bhubaneswar <span /></motion.p>
-        <motion.h1 initial="hidden" animate="show" variants={rise} transition={{ delay: 0.08, duration: 0.75 }}>Capture<br /><em>what matters.</em></motion.h1>
+        <motion.p className="hero-kicker" initial="hidden" animate="show" variants={enterLeft} transition={{ duration: 0.56, ease: [0.23, 1, 0.32, 1] }}>One Stop · Bhubaneswar <span /></motion.p>
+        <h1 aria-label="Capture what matters."><motion.span className="hero-title-line" initial="hidden" animate="show" variants={enterLeft} transition={{ delay: 0.08, duration: 0.76, ease: [0.23, 1, 0.32, 1] }}>Capture</motion.span><motion.em className="hero-title-line" initial="hidden" animate="show" variants={enterRight} transition={{ delay: 0.15, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}>what matters.</motion.em></h1>
         <motion.div className="hero-bottom" initial="hidden" animate="show" variants={rise} transition={{ delay: 0.16, duration: 0.65 }}>
-          <p>Cameras, lenses and photography essentials for creators who want to tell better stories.</p>
-          <div className="hero-actions"><a className="button button-amber" href="/products">Explore gear <ArrowUpRight /></a><a className="button button-ghost-light" href="/quote">Get a quote</a></div>
+          <motion.p initial="hidden" animate="show" variants={enterLeft} transition={{ delay: 0.28, duration: 0.62, ease: [0.23, 1, 0.32, 1] }}>Cameras, lenses and photography essentials for creators who want to tell better stories.</motion.p>
+          <motion.div className="hero-actions" initial="hidden" animate="show" variants={enterRight} transition={{ delay: 0.35, duration: 0.62, ease: [0.23, 1, 0.32, 1] }}><a className="button button-amber" href="/products">Explore gear <ArrowUpRight /></a><a className="button button-ghost-light" href="/quote">Get a quote</a></motion.div>
         </motion.div>
         <motion.div className="hero-orbit" initial={{ opacity: 0, rotateX: 16, rotateY: -14, y: 24 }} animate={{ opacity: 1, rotateX: 0, rotateY: 0, y: 0 }} transition={{ delay: 0.2, duration: 0.9, ease: [0.23, 1, 0.32, 1] }} aria-hidden="true"><div className="orbit-ring" /><div className="orbit-core"><Aperture /></div><span>ONE STOP<br />OPTICS</span></motion.div>
         <a className="hero-scroll" href="#categories">Scroll to explore <ArrowDownRight /></a>
